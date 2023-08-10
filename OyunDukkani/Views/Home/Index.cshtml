@@ -1,0 +1,32 @@
+﻿@model List<OyunDukkani.Data.Oyunlar>
+@{
+    ViewBag.Title = "Data";
+}
+
+
+<h1>Oyunlarımız</h1>
+<a asp-controller="Oyunlar" asp-action="Yeni">Yeni Girdi</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Oyun Adı</th>
+            <th>Fiyatı</th>
+            <th>Platformu</th>
+            <th>Barkod Numarası</th>
+            <th>Tek Platform</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var oyun in Model)
+        {
+            <tr>
+                <td>@(oyun.OyunAdi ?? "Bilgi Yok")</td>
+                <td>@oyun.Fiyati</td>
+                <td>@(oyun.Platformu ?? "Bilgi Yok")</td>
+                <td>@(oyun.BarkodNumarasi ?? "Bilgi Yok")</td>
+                <td>@(oyun.TekPlatform ? "Evet" : "Hayır")</td>
+            </tr>
+        }
+    </tbody>
+</table>

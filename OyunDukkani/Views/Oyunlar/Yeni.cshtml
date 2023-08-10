@@ -1,0 +1,37 @@
+﻿@model OyunDukkani.Data.Oyunlar
+@{
+    ViewData["Title"] = "Yeni Girdi";
+}
+<h1>Yeni Girdi</h1>
+
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="OyunAdi" class="form-label">Oyun Adı</label>
+        <input asp-for="OyunAdi" type="text" class="form-control" />
+        <span asp-validation-for="OyunAdi" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Fiyati" class="form-label">Fiyatı</label>
+        <input asp-for="Fiyati" type="number" class="form-control" />
+        <span asp-validation-for="Fiyati" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Platformu" class="form-label">Platformu</label>
+        <input asp-for="Platformu" type="text" class="form-control" />
+        <span asp-validation-for="Platformu" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="BarkodNumarasi" class="form-label">Barkod Numarası</label>
+        @Model.BarkodNumarasi
+        <input asp-for="BarkodNumarasi" class="form-control" readonly value="@Model.BarkodNumarasi" />
+        <span asp-validation-for="BarkodNumarasi" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="TekPlatform" class="form-label">Tek Platform</label>
+        <input asp-for="TekPlatform" type="checkbox" class="form-check-input" />
+        <span asp-validation-for="TekPlatform" class="text-danger"></span>
+    </div>
+    <button class="btn btn-primary">Ekle</button>
+    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+</form>
